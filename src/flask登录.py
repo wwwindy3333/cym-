@@ -13,8 +13,10 @@ if __name__ == '__main__':
 from flask import Flask
 from flask import request
 
-app = Flask(__name__)
-@app.route('/')
+
+app = Flask(__name__)#开始编写app的内容
+
+@app.route('/')#定义一个路径，里面写想要实现的功能函数
 def hello_world():
     return '''
     <center><b><font color="red">Hello World!</font></b></center>
@@ -25,17 +27,19 @@ def hello_world():
     </form>
     '''
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST'])#同上
 def login():
     un = request.form['un']
     pd = request.form['pd']
+
+    #下面的内容移植自pycharm链接数据库的代码
     # 1.Connection Open
     conn = pymysql.connect(user='root', password='root', database='login')
 
     # 2.Cursor Creating:
     cursor = conn.cursor()
 
-    # 3.SQL Execution
+    # 3.SQL Execution，注意要把常量改成上面定义过的变量
     sqlstr = 'select * from customer where customer_name="'+un+'" and customer_pwd="'+pd+'"'
 
     # 4.Cursor Moving
