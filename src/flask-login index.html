@@ -33,5 +33,21 @@ Password:<input type="password" name="pd">
 <input type="submit" name="Submit">
 </form>
 
+ <h2>Register</h2>
+<form action="/register" method="post">
+    Username: <input type="text" name="un1"><br><br>
+    Password: <input type="password" name="pd1"><br><br>
+    Confirm:  <input type="password" name="pd2"><br><br>
+    <input type="submit" value="Register">
+</form>
+<br>
+
+<!-- 这里显示提示信息 -->
+{% if msg %}
+    <p style="color: green; font-weight: bold;">{{ msg }}</p >
+{% endif %}
+
+<br><a href=" ">Back to Login</a >
+
 </body>
 </html>
